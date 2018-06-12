@@ -4,15 +4,15 @@ $(document).ready (() => {
 
     let player = {
         name: "goku",
-        health : 300000,
-        power: 10000,
+        health : 100,
+        power: 20,
         image: 'assets/images/goku.png',
     }
     
     let opponent = {
         name: "frieza",
-        health: 500000,
-        power: 12000,
+        health: 100,
+        power: 20,
         image: 'assets/images/frieza.png',
     }
     
@@ -74,8 +74,8 @@ $(document).ready (() => {
     }
     
     $('#restart-button').on("click",() => {
-        player.health = 300000;
-        opponent.health = 500000;
+        player.health = 100;
+        opponent.health = 100;
         gameMessage.text("");
         $('#attack-button').show();
         $('#restart-button').hide();
