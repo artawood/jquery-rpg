@@ -1,0 +1,49 @@
+/* css document */
+
+/* ====================== Global Styles ==================== */
+
+html, body {
+    height: 100%;
+}
+
+body {
+    background-image: url("../images/background.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    margin: 0 auto;
+}
+
+.row {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: 'Jua', sans-serif;
+}
+
+.health {
+    color: #FFF043;
+}
+
+.character {
+    width: 50%;
+}
+
+#attack {
+    position: relative;
+}
+
+.kamehameha {
+    position: absolute;
+    left: -100px;
+    width: 140%;
+    animation: kamehameha 0.5s forwards;
+    animation-delay: 0s;
+}
+
+@keyframes kamehameha {
+    0%  {opacity: 0;}
+    50% {opacity: 1;}
+    100% {opacity: 0; left: 0;}
+}
