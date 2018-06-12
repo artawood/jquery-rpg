@@ -3,14 +3,16 @@
 $(document).ready (() => {
 
     let player = {
-        health : 100,
-        power: 20,
+        name: "goku",
+        health : 300000,
+        power: 10000,
         image: 'assets/images/goku.png',
     }
     
     let opponent = {
-        health: 100,
-        power: 20,
+        name: "frieza",
+        health: 500000,
+        power: 12000,
         image: 'assets/images/frieza.png',
     }
     
