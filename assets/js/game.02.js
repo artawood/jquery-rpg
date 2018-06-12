@@ -74,8 +74,8 @@ $(document).ready (() => {
     }
     
     $('#restart-button').on("click",() => {
-        player.health = 100;
-        opponent.health = 100;
+        player.health = 300000;
+        opponent.health = 500000;
         gameMessage.text("");
         $('#attack-button').show();
         $('#restart-button').hide();
