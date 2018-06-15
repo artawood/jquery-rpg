@@ -15,6 +15,16 @@ $(document).ready (() => {
         power: 20,
         image: 'assets/images/frieza.png',
     }
+
+    //TODO: Display characters
+        //Create an array for displaying characters
+    //TODO: Player to select characters
+        //If selected player's character == character in the array, pop()
+    //TODO: Player to select opponent
+        //If selected opponent's character == character in the array, pop()
+        //If player's health < 0, game over
+        //Else if opponent's health < 0, player selects next opponent
+            //If character array = [], player wins the game
     
     //Global Variables
     var attackButton = $('#attack-button');
@@ -27,11 +37,14 @@ $(document).ready (() => {
     const displayOpponentHealth = $('#opponent-health');
     const displayPlayerHealth = $('#player-health');
 
+    let blast = new Audio('assets/sounds/attack-sounds/laser_cannon.mp3');
+    let counterBlast = new Audio('assets/sounds/attack-sounds/ray_gun.mp3');
+
     var attack = $('#attack');
     
     $('#attack-button').on("click",() => {
         attack.html("<img class='kamehameha' src='assets/images/kamehameha.png'>");
-        $('#blast')[0].play();
+        blast.play();
         let playerAttack = determineAttack(player.power);
         opponent.health -= playerAttack;
         displayOnScreen();
@@ -44,18 +57,19 @@ $(document).ready (() => {
         attackButton = true;
         gameMessage.text("Your Opponent is about to strike");
 
-        setTimeout(() => { 
-        let opponentAttack = determineAttack(opponent.power);
-        player.health -= opponentAttack;
-        displayOnScreen();
-        attackButton = false;
+        setTimeout(() => {
+            attack.html("<img class='kamehameha-reverse' src='assets/images/kamehameha-reverse.png'>"); 
+            counterBlast.play();
+            let opponentAttack = determineAttack(opponent.power);
+            player.health -= opponentAttack;
+            displayOnScreen();
+            attackButton = false;
 
-        if (isGameOver(player.health)){
+            if (isGameOver(player.health)){
             endGame("Player loose!");
             return;
-        }
-
-    }, 500 );
+            }
+    }, 1000);
 
     });
 
@@ -84,10 +98,11 @@ $(document).ready (() => {
     })
 
     const displayOnScreen = () => {
-        displayOpponent.html("<img class='character' src='" + opponent.image + "'>");
-        displayPlayer.html("<img class='character' src='" + player.image + "'>");
+        displayOpponent.html("<h3>" + opponent.name + "</h3>" + "<h4>Power: " + opponent.power + "</h4>" + "<img class='character' src='" + opponent.image + "'>");
+        displayPlayer.html("<h3>" + player.name +  "</h3>" + "<h4>Power: " + player.power + "</h4>" +  "<img class='character' src='" + player.image + "'>");
         displayOpponentHealth.text(opponent.health);
         displayPlayerHealth.text(player.health);
+        gameMessage.text("");
     }
 
     displayOnScreen();
