@@ -13,6 +13,10 @@ body {
     margin: 0 auto;
 }
 
+.logo {
+    width: 40%;
+}
+
 .row {
     margin-left: 0px;
     margin-right: 0px;
@@ -20,6 +24,7 @@ body {
 
 h1, h2, h3, h4, h5 {
     font-family: 'Jua', sans-serif;
+    text-shadow: 1px 2px gray;
 }
 
 .health {
@@ -37,7 +42,7 @@ h1, h2, h3, h4, h5 {
 .kamehameha {
     position: absolute;
     left: -100px;
-    width: 140%;
+    width: 130%;
     animation: kamehameha 0.5s forwards;
     animation-delay: 0s;
 }
@@ -46,4 +51,18 @@ h1, h2, h3, h4, h5 {
     0%  {opacity: 0;}
     50% {opacity: 1;}
     100% {opacity: 0; left: 0;}
+}
+
+.kamehameha-reverse {
+    position: absolute;
+    right: -100px;
+    width: 140%;
+    animation: kamehameha-reverse 0.5s forwards;
+    animation-delay: 0s;
+}
+
+@keyframes kamehameha-reverse {
+    0%  {opacity: 0;}
+    50% {opacity: 1;}
+    100% {opacity: 0; right: 0;}
 }
